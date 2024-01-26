@@ -1,7 +1,6 @@
 import time
 import numpy as np
 import streamlit as st
-from playsound import playsound as ps
 from pydub import AudioSegment as aseg
 from pydub.playback import play
 
@@ -138,7 +137,7 @@ if c3.button("Shoot"):
     if st.session_state.ammo != 0:
 
         try:
-            sound = aseg.from_wav(f"Shoot.mp3")
+            sound = aseg.from_mp3(f"Shoot.mp3")
             play(sound)
 
         except:
@@ -159,7 +158,8 @@ if c3.button("Shoot"):
     else:
 
         try:
-            ps("Click.mp3")
+            sound = aseg.from_mp3(f"Click.mp3")
+            play(sound)
             st.write(f"\*click!\*")
         except:
             st.write(f"\*click!\*")
@@ -167,7 +167,8 @@ if c3.button("Shoot"):
 
 if c4.button("Mag Dump"):
     
-    ps("MagDump.mp3")
+    sound = aseg.from_mp3(f"MagDump.mp3")
+    play(sound)
     
     while st.session_state.ammo > 0:
 
@@ -184,7 +185,8 @@ if c4.button("Mag Dump"):
         time.sleep(60/gunlist[gun][3])
 
         try:
-            ps("Click.mp3")
+            sound = aseg.from_mp3(f"Click.mp3")
+            play(sound)
             st.write(f"\*click!\*")
         except:
             st.write(f"\*click!\*")
@@ -196,7 +198,8 @@ if c3.button("Reload"):
         if gun in ["MP5", "UMP45", "UMP9"]:
             
             try:
-                ps("H&KReload.mp3")
+                sound = aseg.from_mp3(f"H&KReload.mp3")
+                play(sound)
                 st.sidebar.write("Reloading!")
             except:
                 st.sidebar.write("Already Reloading!")
