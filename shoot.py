@@ -138,7 +138,7 @@ if c3.button("Shoot"):
     if st.session_state.ammo != 0:
 
         try:
-            sound = aseg.from_wav(f"Sounds/H&KReload.wav")
+            sound = aseg.from_wav(f"Shoot.mp3")
             play(sound)
 
         except:
@@ -159,16 +159,16 @@ if c3.button("Shoot"):
     else:
 
         try:
-            ps("Sounds/Click.mp3")
+            ps("Click.mp3")
             st.write(f"\*click!\*")
         except:
             st.write(f"\*click!\*")
 
 
 if c4.button("Mag Dump"):
-
-    ps("Sounds/MagDump.mp3")
-
+    
+    ps("MagDump.mp3")
+    
     while st.session_state.ammo > 0:
 
         st.session_state.ammo -= 1
@@ -184,7 +184,7 @@ if c4.button("Mag Dump"):
         time.sleep(60/gunlist[gun][3])
 
         try:
-            ps("Sounds/Click.mp3")
+            ps("Click.mp3")
             st.write(f"\*click!\*")
         except:
             st.write(f"\*click!\*")
@@ -196,7 +196,7 @@ if c3.button("Reload"):
         if gun in ["MP5", "UMP45", "UMP9"]:
             
             try:
-                ps("Sounds/H&KReload.mp3")
+                ps("H&KReload.mp3")
                 st.sidebar.write("Reloading!")
             except:
                 st.sidebar.write("Already Reloading!")
